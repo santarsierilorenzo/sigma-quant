@@ -1,50 +1,51 @@
 API Reference
-====================================
-The API expose the majority of functions that can be used in quant-kit, so for
-the majority of use cases you don't need to import functions referring to
-submodules. In this page you'll find the method exposed to the API.
+=============
+
+Quant-Kit exposes a flat, high-level API that covers the majority of common
+quantitative finance use cases. In most scenarios, users do not need to import
+functions directly from submodules.
+
+This section provides an overview of the available API domains. Use the
+navigation below to access detailed function signatures and documentation.
 
 
-**Roadmap**
+Returns
+~~~~~~~
 
-Returns module
-~~~~~~~~~~~~~~
-- ``cum_returns``
-- ``annual_return``
-- ``active_return``
-- ``aggregate_returns``
+Functions for computing and aggregating returns, as well as measuring
+performance over time.
 
-Metrics module
-~~~~~~~~~~~~~~
+Examples include cumulative returns, annualized returns, and active returns.
 
-- ``sharpe_ratio``
-- ``sortino_ratio``
-- ``calmar_ratio``
-- ``omega_ratio``
-- ``hit_rate``
-- ``period_hit_rate``
-- ``skew``
-- ``excess_kurtosis``
-- ``tracking_error``
-- ``information_ratio``
 
-Risk module
-~~~~~~~~~~~
+Metrics
+~~~~~~~
 
-- ``drawdown``
-- ``max_drawdown``
-- ``annual_vola``
-- ``downside_risk``
-- ``upside_risk``
-- ``time_underwater``
-- ``drawdown_stats``
-- ``tail_ratio``
+Risk-adjusted performance metrics commonly used in quantitative finance.
+
+This includes Sharpe, Sortino, Calmar, and other widely adopted ratios.
+
+
+Risk
+~~~~
+
+Functions for measuring downside risk, drawdowns, and volatility-related
+statistics.
+
 
 Rolling
 ~~~~~~~
-- ``rolling_metric``
+
+Rolling-window versions of selected metrics, useful for time-varying analysis.
+
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
+   :hidden:
 
-   api/index
+   returns
+   risk
+   metrics
+   rolling
+
+
