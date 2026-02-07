@@ -1,40 +1,51 @@
 from __future__ import annotations
 
-from typing import List
-import sys
 import os
+import sys
+from typing import List
 
+
+# -- Path setup -------------------------------------------------------------
 
 PROJECT_ROOT: str = os.path.abspath("..")
 sys.path.insert(0, PROJECT_ROOT)
+
+
+# -- Project information ----------------------------------------------------
 
 project: str = "quant-kit"
 author: str = "Lorenzo Santarsieri"
 release: str = "0.1.0"
 
+
+# -- General configuration --------------------------------------------------
+
 extensions: List[str] = [
     "sphinx.ext.autodoc",
-    "sphinx.ext.autosummary",
     "sphinx.ext.napoleon",
 ]
 
-autosummary_generate = True
-
-napoleon_google_docstring = False
-napoleon_numpy_docstring = True
-napoleon_include_init_with_doc = False
-napoleon_include_private_with_doc = False
-napoleon_include_special_with_doc = False
-napoleon_use_param = True
-napoleon_use_rtype = True
-
 templates_path: List[str] = ["_templates"]
-exclude_patterns: List[str] = []
+
+exclude_patterns: List[str] = [
+    "_build",
+    "Thumbs.db",
+    ".DS_Store",
+    "**tests**",
+]
+
+source_suffix = ".rst"
+
+# IMPORTANT:
+# Do NOT set master_doc.
+# Default "index" is correct when building from docs/
+
+
+# -- HTML output ------------------------------------------------------------
 
 html_theme: str = "pydata_sphinx_theme"
 
 html_theme_options = {
-    "use_edit_page_button": False,
     "secondary_sidebar_items": [],
 }
 
