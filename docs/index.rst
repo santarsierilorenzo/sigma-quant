@@ -5,6 +5,7 @@ Welcome to Quant-Kit's documentation!
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents
+   :caption: Documentation
 
+   usage/index
    api/index
