@@ -47,6 +47,9 @@ html_theme: str = "pydata_sphinx_theme"
 
 html_theme_options = {
     "secondary_sidebar_items": [],
+    "navigation_depth": 4,
+    "show_nav_level": 2,
 }
+
 
 html_static_path: List[str] = ["_static"]
