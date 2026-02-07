@@ -1,24 +1,16 @@
 from __future__ import annotations
 
-import os
-import sys
 from typing import List
+import sys
+import os
 
-
-# -- Path setup -------------------------------------------------------------
 
 PROJECT_ROOT: str = os.path.abspath("..")
 sys.path.insert(0, PROJECT_ROOT)
 
-
-# -- Project information ----------------------------------------------------
-
 project: str = "quant-kit"
 author: str = "Lorenzo Santarsieri"
 release: str = "0.1.0"
-
-
-# -- General configuration --------------------------------------------------
 
 extensions: List[str] = [
     "sphinx.ext.autodoc",
@@ -26,7 +18,6 @@ extensions: List[str] = [
 ]
 
 templates_path: List[str] = ["_templates"]
-
 exclude_patterns: List[str] = [
     "_build",
     "Thumbs.db",
@@ -36,13 +27,5 @@ exclude_patterns: List[str] = [
 
 source_suffix = ".rst"
 
-# IMPORTANT:
-# Do NOT set master_doc.
-# Default "index" is correct when building from docs/
-
-
-# -- HTML output ------------------------------------------------------------
-
 html_theme: str = "sphinx_rtd_theme"
-
 html_static_path: List[str] = ["_static"]

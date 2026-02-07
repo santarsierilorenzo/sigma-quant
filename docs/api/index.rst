@@ -30,8 +30,4 @@ Example
 .. toctree::
    :maxdepth: 2
 
-   usage/index
    api/index
-
-* :ref:`genindex`
-* :ref:`search`
