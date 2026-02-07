@@ -43,13 +43,6 @@ source_suffix = ".rst"
 
 # -- HTML output ------------------------------------------------------------
 
-html_theme: str = "pydata_sphinx_theme"
-
-html_theme_options = {
-    "secondary_sidebar_items": [],
-    "navigation_depth": 4,
-    "show_nav_level": 2,
-}
-
+html_theme: str = "sphinx_rtd_theme"
 
 html_static_path: List[str] = ["_static"]
