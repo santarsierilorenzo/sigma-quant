@@ -11,7 +11,7 @@ def cum_returns(
     returns: ArrayLike,
     kind: Literal["simple", "pnl", "log"] = "simple",
     starting_value: float = 0.0,
-):
+) -> ArrayLike:
     """
     Compute cumulative performance over time.
 

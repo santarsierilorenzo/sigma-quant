@@ -3,6 +3,7 @@ from __future__ import annotations
 from .risk import downside_risk, drawdown
 from .typing import ArrayLike, Frequency
 from .utils import periods_per_year
+from .returns import active_return
 from typing import Iterable
 import pandas as pd
 import numpy as np
@@ -15,7 +16,29 @@ def sharpe_ratio(
     risk_free: float = 0.0,
 ) -> float:
     """
-    Compute the Sharpe ratio.
+    Compute the Sharpe ratio for a series of returns.
+
+    NaN values are ignored.
+
+    Parameters
+    ----------
+    returns
+        Sequence of periodic returns.
+    frequency
+        Frequency of the returns:
+        - "D": daily
+        - "W": weekly
+        - "M": monthly
+        - "Y": yearly
+    annualize
+        If True, the Sharpe ratio is scaled to annual frequency.
+    risk_free
+        Risk-free rate per period (same frequency as `returns`).
+
+    Returns
+    -------
+    float
+        Sharpe ratio.
     """
     arr = np.asarray(list(returns), dtype=float)
     arr = arr[~np.isnan(arr)]
@@ -45,6 +68,44 @@ def sortino_ratio(
 ) -> float:
     """
     Compute the Sortino ratio.
+
+    The Sortino ratio measures the excess return relative to a minimum
+    acceptable return (MAR), adjusted for downside risk only.
+
+    Parameters
+    ----------
+    returns
+        Sequence of periodic returns.
+    frequency
+        Frequency of the returns:
+        - "D": daily
+        - "W": weekly
+        - "M": monthly
+        - "Y": yearly
+    annualize
+        If True, the Sortino ratio is scaled to annual frequency.
+    risk_free
+        Risk-free rate per period. This parameter is ignored unless
+        explicitly used as MAR.
+    mar
+        Minimum acceptable return. This value is used consistently
+        both in the numerator and in the downside risk computation.
+
+    Returns
+    -------
+    float
+        Sortino ratio.
+
+    Notes
+    -----
+    The Sortino ratio is defined as:
+
+        Sortino = E[r_t - MAR] / sqrt( E[min(r_t - MAR, 0)^2] )
+
+    where r_t are the periodic returns.
+
+    NaN values are ignored. The result is annualized using the
+    square-root-of-time rule when `annualize=True`.
     """
     arr = np.asarray(list(returns), dtype=float)
     arr = arr[~np.isnan(arr)]
@@ -72,7 +133,7 @@ def calmar_ratio(
     kind: str = "simple",
 ) -> float:
     """
-    Compute the Calmar ratio.
+    Compute the Calmar ratio or a Calmar-like metric.
     """
     max_dd = abs(np.min(drawdown(returns, kind=kind)))
     if max_dd == 0:
@@ -93,6 +154,50 @@ def omega_ratio(
 ) -> float:
     """
     Compute the Omega ratio.
+
+    The Omega ratio measures the probability-weighted gains relative
+    to probability-weighted losses with respect to a required return.
+
+    The required return is expressed at annual frequency and is
+    internally converted to the same frequency as the input returns.
+
+    Parameters
+    ----------
+    returns
+        Sequence of periodic returns.
+    required_return
+        Annual required (minimum acceptable) return.
+    frequency
+        Frequency of the input returns:
+        - "D": daily
+        - "W": weekly
+        - "M": monthly
+        - "Y": yearly
+
+    Returns
+    -------
+    float
+        Omega ratio.
+
+    Notes
+    -----
+    The Omega ratio is defined as:
+
+        Omega(tau) =
+            sum( max(r_t - tau, 0) ) /
+            sum( max(tau - r_t, 0) )
+
+    where r_t are the periodic returns and tau is the required return
+    converted to the same frequency as `returns`.
+
+    The annual required return is converted as:
+
+        tau = (1 + required_return) ** (1 / N) - 1
+
+    where N is the number of periods per year implied by `frequency`.
+
+    NaN values are ignored. If no downside deviations are present,
+    the Omega ratio is undefined and NaN is returned.
     """
     arr = np.asarray(list(returns), dtype=float)
     arr = arr[~np.isnan(arr)]
@@ -127,7 +232,32 @@ def hit_rate(
     returns: Iterable[float],
 ) -> float:
     """
-    Fraction of strictly positive observations.
+    Compute the hit ratio.
+
+    The hit ratio is defined as the fraction of periods with strictly
+    positive returns.
+
+    Parameters
+    ----------
+    returns
+        Sequence of periodic returns or PnL values.
+
+    Returns
+    -------
+    float
+        Hit ratio, i.e. the proportion of observations where the
+        return (or PnL) is greater than zero.
+
+    Notes
+    -----
+    NaN values are ignored.
+
+    A hit ratio close to 0.5 indicates that positive and negative
+    outcomes occur with similar frequency, while higher values
+    indicate a larger proportion of positive periods.
+
+    This metric does not take into account the magnitude of returns,
+    only their sign.
     """
     arr = np.asarray(list(returns), dtype=float)
     arr = arr[~np.isnan(arr)]
@@ -181,7 +311,33 @@ def skew(
     returns: Iterable[float],
 ) -> float:
     """
-    Compute skewness.
+    Compute the skewness of a return series.
+
+    Skewness measures the asymmetry of a distribution around its mean.
+    Positive skewness indicates a longer or fatter right tail, while
+    negative skewness indicates a longer or fatter left tail.
+
+    Parameters
+    ----------
+    returns
+        Sequence of periodic returns or PnL values.
+
+    Returns
+    -------
+    float
+        Skewness of the input series.
+
+    Notes
+    -----
+    Skewness is defined as:
+
+        E[ ((X - mu) / sigma)^3 ]
+
+    where mu is the sample mean and sigma is the sample standard
+    deviation computed with ddof=1.
+
+    NaN values are ignored. The estimator does not apply a finite-sample
+    bias correction.
     """
     arr = np.asarray(list(returns), dtype=float)
     arr = arr[~np.isnan(arr)]
@@ -196,7 +352,33 @@ def excess_kurtosis(
     returns: Iterable[float],
 ) -> float:
     """
-    Compute excess kurtosis.
+    Compute the excess kurtosis of a return series.
+
+    Excess kurtosis measures the degree of tail heaviness of a
+    distribution relative to a normal distribution. A normal
+    distribution has zero excess kurtosis.
+
+    Parameters
+    ----------
+    returns
+        Sequence of periodic returns or PnL values.
+
+    Returns
+    -------
+    float
+        Excess kurtosis of the input series.
+
+    Notes
+    -----
+    Excess kurtosis is defined as:
+
+        E[ ((X - mu) / sigma)^4 ] - 3
+
+    where mu is the sample mean and sigma is the sample standard
+    deviation computed with ddof=1.
+
+    NaN values are ignored. The estimator does not apply a finite-sample
+    bias correction.
     """
     arr = np.asarray(list(returns), dtype=float)
     arr = arr[~np.isnan(arr)]
