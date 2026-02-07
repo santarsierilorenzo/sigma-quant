@@ -1,4 +1,4 @@
-Welcome to Quant-Kit's documentation!
+Overview
 ====================================
 Quant-Kit is a Python package that provides a collection of widely used
 metrics in quantitative finance.
