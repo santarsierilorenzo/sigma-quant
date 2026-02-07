@@ -13,7 +13,6 @@ explanations of how and why each metric is implemented.
 
 Installation
 ~~~~~~~~~~~~
-
 Quant-Kit can be installed using ``pip``:
 
 .. code-block:: bash
@@ -22,7 +21,6 @@ Quant-Kit can be installed using ``pip``:
 
 Import
 ~~~~~~
-
 The recommended import pattern is the following:
 
 .. code-block:: python
@@ -34,7 +32,6 @@ The recommended import pattern is the following:
 
 .. toctree::
    :maxdepth: 2
-   :caption: Documentation
    :hidden:
 
    usage/index
