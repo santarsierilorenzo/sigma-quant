@@ -11,7 +11,7 @@ cum_returns
 Compute cumulative performance over time from a sequence of returns or
 PnL values.
 
-.. autofunction:: quant_kit.cum_returns
+.. autofunction:: quant_kit.returns.cum_returns
 
 
 Examples
