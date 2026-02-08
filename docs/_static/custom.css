@@ -1,0 +1,22 @@
+/* Box per Parameters / Notes / Returns */
+dl.field-list {
+    border: 1px solid #3b3f46;
+    border-radius: 6px;
+    padding: 12px;
+    margin: 24px 0;
+    background-color: #1e2228;
+}
+
+/* Section title */
+dl.field-list > dt {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #7fbfff;
+    margin-bottom: 8px;
+}
+
+/* Body */
+dl.field-list > dd {
+    margin-left: 0;
+}

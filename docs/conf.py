@@ -12,7 +12,7 @@ project: str = "quant-kit"
 author: str = "Lorenzo Santarsieri"
 release: str = "0.1.0"
 
-extensions = [
+extensions: List[str] = [
     "sphinx.ext.autosummary",
     "sphinx.ext.napoleon",
     "sphinx.ext.mathjax",
@@ -22,6 +22,7 @@ autosummary_generate = True
 autodoc_typehints = "none"
 
 templates_path: List[str] = ["_templates"]
+
 exclude_patterns: List[str] = [
     "_build",
     "Thumbs.db",
@@ -30,4 +31,11 @@ exclude_patterns: List[str] = [
 ]
 
 source_suffix = ".rst"
+
 html_theme: str = "sphinx_rtd_theme"
+html_static_path: List[str] = ["_static"]
+
+
+def setup(app) -> None:
+    """Register custom CSS files."""
+    app.add_css_file("custom.css")
