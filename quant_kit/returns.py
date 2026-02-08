@@ -44,7 +44,7 @@ def cum_returns(
         Cumulative performance series. The output type matches the input
         type when possible.
 
-    ---------------------------------------------------------------------------        
+      
     Notes
     -----
     For simple returns, cumulative performance is computed using multiplicative
