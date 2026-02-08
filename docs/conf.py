@@ -1,9 +1,7 @@
 from __future__ import annotations
-
 from typing import List
 import sys
 import os
-
 
 PROJECT_ROOT: str = os.path.abspath("..")
 sys.path.insert(0, PROJECT_ROOT)
@@ -23,7 +21,6 @@ extensions = [
 
 autosummary_generate = True
 autodoc_typehints = "none"
-
 templates_path: List[str] = ["_templates"]
 
 exclude_patterns: List[str] = [
@@ -34,16 +31,16 @@ exclude_patterns: List[str] = [
 ]
 
 source_suffix = ".rst"
-
 html_theme = "breeze"
 
 html_theme_options = {
     "sidebarwidth": 280,
     "show_nav_title": True,
+    "logo_only": False,
 }
 
 html_static_path = ["_static"]
 
-def setup(app) -> None:
-    app.add_css_file("custom.css")
-
+def setup(app):
+    app.add_css_file("custom.css", priority=999)
+    

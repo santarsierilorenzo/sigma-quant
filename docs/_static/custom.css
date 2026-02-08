@@ -1,37 +1,42 @@
-/* =========================================================
-   GLOBAL WIDTH (Breeze-compatible)
-   Aumentata la larghezza per evitare l'effetto schiacciato
-========================================================= */
-
-.bd-main {
-    max-width: 1400px; /* Portato da 1200 a 1400 */
+body, .bd-container, .bd-main, .bd-content, .bd-article-container {
+    max-width: 1450px !important;
 }
 
-.bd-container {
-    max-width: 1400px;
+.bd-main .bd-content {
+    max-width: 100% !important;
+    flex-basis: 100% !important;
 }
 
-/* =========================================================
-   HERO
-========================================================= */
-
-.hero-wrapper {
-    margin-top: 1rem;
+.navbar-brand img {
+    height: 65px !important; 
+    max-height: 65px !important;
+    width: auto !important;
+    display: block !important;
+    transform: scale(1.2);
 }
 
-.hero {
-    max-width: 1400px;
-    margin: 0 auto 3rem auto;
+.navbar-brand {
+    padding: 0 !important;
+    margin-right: 2rem !important;
+    display: flex !important;
+    align-items: center !important;
 }
 
-.hero-content {
-    max-width: 1400px;
-    margin: 0 auto;
+article.bd-article h2, 
+.bd-content h2, 
+section h2,
+#overview {
+    font-size: 1.6rem !important;
+    font-weight: 600 !important;
+    margin-top: 2rem !important;
+    margin-bottom: 1.5rem !important;
 }
 
-/* =========================================================
-   HERO TEXT
-========================================================= */
+.hero, .hero-content, .sd-grid {
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
 
 .hero-title {
     font-size: 3rem;
@@ -44,14 +49,6 @@
     color: var(--color-foreground-muted);
     margin-bottom: 1.25rem;
 }
-
-.hero-content p {
-    margin-bottom: 1.1rem;
-}
-
-/* =========================================================
-   CTA
-========================================================= */
 
 .cta-row {
     display: flex;
@@ -93,47 +90,4 @@
     background-color: rgba(139, 92, 246, 0.12);
     border-color: #a78bfa;
     color: #e9d5ff;
-}
-
-.cta-pill svg {
-    fill: currentColor;
-}
-
-/* =========================================================
-   OVERVIEW TITLE
-   Ridotta la dimensione del font
-========================================================= */
-
-.bd-content h2 {
-    font-size: 1.8rem !important; /* Ridotto per non essere eccessivo */
-    font-weight: 600;
-    margin-top: 2.5rem;
-    margin-bottom: 1.25rem;
-}
-
-/* =========================================================
-   OVERVIEW GRID
-========================================================= */
-
-.sd-grid {
-    padding-left: 0;
-    padding-right: 0;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-/* =========================================================
-   NAVBAR LOGO
-   Forzata la dimensione del logo (gorilla)
-========================================================= */
-
-.navbar-brand img {
-    height: 65px !important; /* Aumentato da 44px */
-    width: auto !important;
-    max-height: 65px !important;
-}
-
-.navbar-brand {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
 }
