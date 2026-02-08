@@ -135,14 +135,22 @@
 }
 
 /* =========================================================
-   REMOVE LEFT GUTTER (Breeze main content)
+   FORCE FULL-WIDTH CONTENT (Breeze)
 ========================================================= */
 
+:root {
+    --bd-page-padding: 0px !important;
+    --bd-content-padding: 0px !important;
+}
+
+/* Extra safety: kill grid gutters */
 .bd-main {
     padding-left: 0 !important;
+    padding-right: 0 !important;
 }
 
 .bd-content {
-    margin-left: 0 !important;
     padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
 }
