@@ -120,26 +120,32 @@ section,
 }
 
 /* =========================
-   FIX BREEZE TOP SPACING
+   BREEZE: KILL GHOST HEADER
 ========================= */
 
-/* Remove top padding added by Breeze */
+/* Remove invisible page header */
+.page-header {
+    display: none !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Remove spacing before main content */
+main {
+    padding-top: 0 !important;
+}
+
+/* Remove article spacing */
+.bd-article,
 .bd-content {
-    padding-top: 0 !important;
-}
-
-.bd-article {
-    padding-top: 0 !important;
-    margin-top: 0 !important;
-}
-
-/* Ensure hero sticks to top */
-.hero-wrapper {
     margin-top: 0 !important;
     padding-top: 0 !important;
 }
 
-/* Optional: tighten hero vertical rhythm */
+/* Hero must start immediately */
+.hero-wrapper,
 .hero {
-    margin-top: 2.5rem;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
 }
