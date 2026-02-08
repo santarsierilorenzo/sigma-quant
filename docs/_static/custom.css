@@ -1,60 +1,46 @@
-body, .bd-container, .bd-main, .bd-content, .bd-article-container {
-    max-width: 1450px !important;
-}
-
-.bd-main .bd-content {
+header.bd-header, 
+.bd-container, 
+.bd-main, 
+.bd-page-width, 
+article.bd-article {
     max-width: 100% !important;
-    flex-basis: 100% !important;
+    width: 100% !important;
+    padding-left: 5% !important;
+    padding-right: 5% !important;
 }
 
 .navbar-brand img {
-    height: 65px !important; 
-    max-height: 65px !important;
+    height: 60px !important;
+    max-height: 60px !important;
     width: auto !important;
-    display: block !important;
-    transform: scale(1.2);
+    transform: scale(1.4) !important;
+    transform-origin: left center !important;
 }
 
 .navbar-brand {
-    padding: 0 !important;
-    margin-right: 2rem !important;
-    display: flex !important;
-    align-items: center !important;
+    margin-right: 3rem !important;
 }
 
-article.bd-article h2, 
+h2, 
 .bd-content h2, 
-section h2,
-#overview {
-    font-size: 1.6rem !important;
-    font-weight: 600 !important;
-    margin-top: 2rem !important;
-    margin-bottom: 1.5rem !important;
+.bd-article h2, 
+#overview,
+section h2 {
+    font-size: 1.3rem !important;
+    font-weight: 700 !important;
+    margin-top: 1.5rem !important;
+    border-bottom: none !important;
 }
 
-.hero, .hero-content, .sd-grid {
+.hero, .hero-content, .sd-grid, .bd-article-container {
     max-width: 100% !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
 }
 
 .hero-title {
-    font-size: 3rem;
-    font-weight: 500;
-    margin: 0 0 1rem 0;
-}
-
-.hero-subtitle {
-    font-size: 1.1rem;
-    color: var(--color-foreground-muted);
-    margin-bottom: 1.25rem;
-}
-
-.cta-row {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1.75rem;
-    flex-wrap: wrap;
+    font-size: 3rem !important;
+    font-weight: 700 !important;
 }
 
 .cta-pill {
@@ -64,30 +50,16 @@ section h2,
     padding: 0.75rem 1.3rem;
     border-radius: 999px;
     font-weight: 600;
-    font-size: 0.95rem;
-    line-height: 1;
     text-decoration: none;
-    border: 1px solid transparent;
-    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 .cta-primary {
     background-color: #355fd3;
-    color: #ffffff;
-}
-
-.cta-primary:hover {
-    background-color: #3f6ae1;
+    color: #ffffff !important;
 }
 
 .cta-secondary {
-    background-color: transparent;
-    border-color: #8b5cf6;
-    color: #c4b5fd;
-}
-
-.cta-secondary:hover {
-    background-color: rgba(139, 92, 246, 0.12);
-    border-color: #a78bfa;
-    color: #e9d5ff;
+    border: 1px solid #8b5cf6;
+    color: #c4b5fd !important;
 }
