@@ -46,22 +46,22 @@ def cum_returns(
 
     Notes
     -----
-    For simple returns, cumulative performance is computed using
+    - Missing values (NaNs) in the input series are treated as zeros prior to
+    aggregation.
+
+    - For simple returns, cumulative performance is computed using
     multiplicative compounding:
 
-    .. math::
+        .. math::
 
-    R_t = \\prod_{i=1}^{t} (1 + r_i) - 1
+        R_t = \\prod_{i=1}^{t} (1 + r_i) - 1
 
-    For log-returns and PnL values, cumulative performance is computed using
-    an additive aggregation:
+        For log-returns and PnL values, cumulative performance is computed
+        using an additive aggregation:
 
-    .. math::
+        .. math::
 
-    R_t = \\sum_{i=1}^{t} r_i
-
-    Missing values (NaNs) in the input series are treated as zeros prior to
-    aggregation.
+        R_t = \\sum_{i=1}^{t} r_i
     """
 
     if kind not in {"simple", "pnl", "log"}:
