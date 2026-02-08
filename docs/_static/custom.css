@@ -1,19 +1,35 @@
 /* =========================
+   GLOBAL LAYOUT OVERRIDE
+   (Breeze containers)
+========================= */
+
+.bd-container,
+.bd-main,
+.bd-article {
+    max-width: none;
+}
+
+/* =========================
    HERO WRAPPER
 ========================= */
 
 .hero-wrapper {
-    margin-top: 0.75rem;
+    margin-top: 1.5rem;
 }
 
 /* =========================
-   HERO LAYOUT
+   HERO
 ========================= */
 
 .hero {
     max-width: 1040px;
-    margin: 0 auto 3rem auto;
+    margin: 0 auto 3.5rem auto;
     padding: 0;
+}
+
+.hero-content {
+    max-width: 1040px;
+    margin: 0 auto;
 }
 
 /* =========================
@@ -47,68 +63,23 @@
     flex-wrap: wrap;
 }
 
-.cta-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-
-    padding: 0.75rem 1.3rem;
-    border-radius: 999px;
-
-    font-weight: 600;
-    font-size: 0.95rem;
-    line-height: 1;
-
-    text-decoration: none;
-    border: 1px solid transparent;
-
-    transition:
-        background-color 0.2s ease,
-        color 0.2s ease,
-        border-color 0.2s ease;
-}
-
-.cta-primary {
-    background-color: #355fd3;
-    color: #ffffff;
-}
-
-.cta-primary:hover {
-    background-color: #3f6ae1;
-}
-
-.cta-secondary {
-    background-color: transparent;
-    border-color: #8b5cf6;
-    color: #c4b5fd;
-}
-
-.cta-secondary:hover {
-    background-color: rgba(139, 92, 246, 0.12);
-    border-color: #a78bfa;
-    color: #e9d5ff;
-}
-
-.cta-pill svg {
-    fill: currentColor;
-}
-
 /* =========================
-   OVERVIEW ALIGNMENT
-   (Sphinx-Design grid wrapper)
+   OVERVIEW TITLE
 ========================= */
 
 h2#overview {
     max-width: 1040px;
-    margin: 3rem auto 1.25rem auto;
-    padding: 0;
+    margin: 3rem auto 1.5rem auto;
 
-    font-size: 2rem;
+    font-size: 1.9rem;
     font-weight: 500;
     letter-spacing: -0.01em;
 }
 
-/* Sphinx-Design wraps grids in sd-container-fluid */
+/* =========================
+   OVERVIEW GRID ALIGNMENT
+========================= */
+
 .bd-content .sd-container-fluid {
     max-width: 1040px;
     margin: 0 auto;
@@ -120,6 +91,6 @@ h2#overview {
 ========================= */
 
 .navbar-brand img {
-    height: 40px;
+    height: 44px;
     width: auto;
 }
