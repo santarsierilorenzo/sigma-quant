@@ -34,19 +34,20 @@
 
 /* PRIMARY — Get Started */
 .cta-primary {
-    background-color: #4f7df3;
+    background-color: #3f6ae1;
     color: #ffffff;
 }
 
 .cta-primary:hover {
-    background-color: #6b93f6;
+    background-color: #557ff0;
 }
 
-/* SECONDARY — View on GitHub */
 .cta-secondary {
-    background-color: transparent;
-    border-color: #8b5cf6;
     color: #c4b5fd;
+}
+
+.cta-pill svg {
+    fill: currentColor;
 }
 
 .cta-secondary:hover {
