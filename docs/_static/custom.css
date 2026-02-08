@@ -149,14 +149,10 @@
 }
 
 /* =========================================================
-   REDUCE SECTION TITLES (Overview)
+   FORCE SMALLER SECTION TITLES (Breeze override)
 ========================================================= */
 
-/* Target section titles inside page content */
-.bd-article h2,
-.bd-article h3 {
-    font-size: 1.35rem;
-    font-weight: 500;
-    margin-top: 2.25rem;
-    margin-bottom: 1rem;
+:root {
+    --pst-font-size-h2: 1.4rem;
+    --pst-font-size-h3: 1.3rem;
 }
