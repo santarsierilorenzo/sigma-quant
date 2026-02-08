@@ -134,23 +134,27 @@
     width: auto;
 }
 
-/* =========================================================
-   FORCE FULL-WIDTH CONTENT (Breeze)
-========================================================= */
+@media (min-width: 1400px) {
 
-:root {
-    --bd-page-padding: 0px !important;
-    --bd-content-padding: 0px !important;
-}
+    /* Main container */
+    .bd-main,
+    .bd-container,
+    .bd-page {
+        max-width: 1400px !important;
+    }
 
-/* Extra safety: kill grid gutters */
-.bd-main {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-}
+    /* Article/content */
+    .bd-content,
+    .bd-article {
+        max-width: 1400px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
 
-.bd-content {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    margin-left: 0 !important;
+    /* Sphinx-design grids */
+    .sd-container-fluid {
+        max-width: 1400px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
 }
