@@ -31,6 +31,7 @@
          <a class="cta-pill cta-secondary"
             href="https://github.com/your-org/quant-kit">
            <span class="cta-icon">
+             <!-- GitHub SVG -->
              <svg xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   width="18"
@@ -68,7 +69,13 @@
          </a>
        </div>
      </div>
+
+     <div class="hero-visual">
+       <img src="_static/logo.svg"
+            alt="Quant-Kit logo">
+     </div>
    </div>
+
 
 Overview
 --------
