@@ -17,14 +17,15 @@ def cum_returns(
 
     Parameters
     ----------
-    returns
+    returns : array-like
         Input sequence of returns or PnL values.
-        - kind="simple": simple (decimal) returns
-        - kind="log": log-returns
-        - kind="pnl": additive PnL
-    kind
+
+        - ``kind="simple"``: simple (decimal) returns
+        - ``kind="log"``: log-returns
+        - ``kind="pnl"``: additive PnL
+    kind : {"simple", "pnl", "log"}, optional
         Type of input values.
-    starting_value
+    starting_value : float, optional
         Initial cumulative level.
 
     Returns
