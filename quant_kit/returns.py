@@ -53,14 +53,14 @@ def cum_returns(
 
     .. math::
 
-    R_t = \prod_{i=1}^{t} (1 + r_i) - 1
+        R_t = \prod_{i=1}^{t} (1 + r_i) - 1
 
     For log-returns and PnL values, cumulative performance is computed using
     an additive aggregation:
 
     .. math::
 
-    R_t = \sum_{i=1}^{t} r_i
+        R_t = \sum_{i=1}^{t} r_i
 
     Missing values (NaNs) in the input series are treated as zeros prior to
     aggregation.
