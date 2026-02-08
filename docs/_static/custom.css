@@ -11,9 +11,15 @@
 ========================= */
 
 .hero {
-    max-width: 1040px;
+    max-width: 1200px;  /* allunga davvero */
     margin: 0 auto 3rem auto;
-    padding: 0;
+    padding: 0 2rem;    /* padding coerente col tema */
+}
+
+/* IMPORTANTE: senza questo il testo può restare "stretto" */
+.hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /* =========================
@@ -23,17 +29,17 @@
 .hero-title {
     font-size: 3rem;
     font-weight: 500;
-    margin: 0 0 1.25rem 0;
+    margin: 0 0 1rem 0;   /* meno spazio sotto */
 }
 
 .hero-subtitle {
     font-size: 1.1rem;
     color: var(--color-foreground-muted);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
 }
 
 .hero-content p {
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.1rem;
 }
 
 /* =========================
@@ -43,7 +49,7 @@
 .cta-row {
     display: flex;
     gap: 1rem;
-    margin-top: 2rem;
+    margin-top: 1.75rem;
     flex-wrap: wrap;
 }
 
@@ -95,24 +101,33 @@
 
 /* =========================
    OVERVIEW ALIGNMENT
-   (Sphinx-Design grid wrapper)
 ========================= */
 
 h2#overview {
-    max-width: 1040px;
-    margin: 3rem auto 1.25rem auto;
-    padding: 0;
+    max-width: 1200px;   /* stesso width dell'hero */
+    margin: 2.25rem auto 1rem auto;
+    padding: 0 2rem;     /* stesso padding dell'hero */
 
-    font-size: 2rem;
+    font-size: 1.6rem;   /* riduci Overview */
     font-weight: 500;
     letter-spacing: -0.01em;
 }
 
-/* Sphinx-Design wraps grids in sd-container-fluid */
+/* =========================
+   GRID ALIGNMENT (Sphinx-Design)
+   Qui sta il disallineamento vero.
+========================= */
+
 .bd-content .sd-container-fluid {
-    max-width: 1040px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0;
+    padding: 0 2rem;     /* uguale a hero e h2 */
+}
+
+/* sphinx-design aggiunge padding extra ai row: lo togliamo */
+.bd-content .sd-container-fluid .sd-row {
+    margin-left: 0;
+    margin-right: 0;
 }
 
 /* =========================
@@ -120,6 +135,6 @@ h2#overview {
 ========================= */
 
 .navbar-brand img {
-    height: 40px;
+    height: 44px;        /* un pelo più grande */
     width: auto;
 }
