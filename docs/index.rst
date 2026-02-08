@@ -1,50 +1,48 @@
-Welcome to Quant-Kit's documentation!
-====================================
-Quant-Kit is a Python package that provides a collection of widely used
-metrics in quantitative finance.
+Quant-Kit
+=========
 
-The package is designed to be easy to use and offers high-level functions
-that can be seamlessly integrated into your codebase. In addition to
-computing performance and risk metrics, Quant-Kit allows you to generate
-complete performance reports.
+A clean, modern Python library for quantitative finance metrics.
 
-This documentation includes function signatures as well as detailed
-explanations of how and why each metric is implemented.
+.. raw:: html
 
-Installation
-------------
-Quant-Kit can be installed using ``pip``:
+   <div style="margin-top: 1.5rem; margin-bottom: 2.5rem;">
+     <a class="btn btn-primary" href="getting_started.html">
+       🚀 Get Started
+     </a>
+     <a class="btn btn-secondary" href="https://github.com/your-org/quant-kit"
+        style="margin-left: 1rem;">
+       💻 View on GitHub
+     </a>
+   </div>
 
-.. code-block:: bash
+Overview
+--------
 
-   pip install quant-kit
+.. grid:: 3
+   :gutter: 2
 
-Import
-~~~~~~~~~~~~~~~~~~~~
-The recommended import pattern is the following:
+   .. grid-item-card:: 📊 Performance Metrics
+      :link: api/returns.html
 
-.. code-block:: python
+      Sharpe ratio, drawdowns, cumulative returns, volatility
+      and other core portfolio statistics.
 
-   import quant_kit as qt
+   .. grid-item-card:: ⚠️ Risk Analysis
+      :link: api/risk.html
 
-Example
-~~~~~~~~~~~~~~~~~~~~
+      Downside risk, tail metrics, value-at-risk and
+      stress indicators.
 
-.. code-block:: python
+   .. grid-item-card:: 🧪 Research Tools
+      :link: api/research.html
 
-   import numpy as np
-   import quant_kit as qt
-
-   returns = np.array([0.2, 0.3, -0.5, 0.7, 0.2, 0.1, -0.7])
-
-   qt.sharpe_ratio(
-       returns,
-       frequency="D",
-   )
+      Utilities for strategy evaluation, factor analysis
+      and experimentation.
 
 
 .. toctree::
-   :maxdepth: 2
    :hidden:
+   :maxdepth: 2
 
+   getting_started
    api/index

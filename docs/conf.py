@@ -12,10 +12,11 @@ project: str = "quant-kit"
 author: str = "Lorenzo Santarsieri"
 release: str = "0.1.0"
 
-extensions: List[str] = [
+extensions = [
     "sphinx.ext.autosummary",
     "sphinx.ext.napoleon",
     "sphinx.ext.mathjax",
+    "sphinx_design",
 ]
 
 autosummary_generate = True
@@ -39,3 +40,7 @@ html_theme_options = {
 }
 
 html_static_path = ["_static"]
+
+def setup(app) -> None:
+    app.add_css_file("custom.css")
+
