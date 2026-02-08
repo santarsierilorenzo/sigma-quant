@@ -69,14 +69,7 @@
            <span class="cta-text">View on GitHub</span>
          </a>
        </div>
-
      </div>
-
-     <div class="hero-visual">
-       <img src="_static/logo.svg"
-            alt="Quant-Kit logo">
-     </div>
-
    </div>
 
 

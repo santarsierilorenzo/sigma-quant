@@ -144,13 +144,22 @@
 }
 
 /* =========================
-   NAVBAR LOGO
+   NAVBAR LOGO SIZE (Breeze)
 ========================= */
 
-.navbar-brand img {
-    height: 42px;
-    width: auto;
+.navbar-brand img,
+.navbar-brand svg {
+    height: 64px !important;
+    width: auto !important;
+    max-height: none !important;
 }
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
 
 /* =========================
    REMOVE EXCESS TOP GAP
