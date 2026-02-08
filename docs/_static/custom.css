@@ -102,22 +102,6 @@
     fill: currentColor;
 }
 
-/* =========================================================
-   OVERVIEW TITLE
-========================================================= */
-
-.bd-content h2 {
-    font-size: 1rem;
-    font-weight: 500;
-    margin-top: 2.5rem;
-    margin-bottom: 1.25rem;
-}
-
-/* =========================================================
-   OVERVIEW GRID (sphinx-design)
-   Qui stava il disallineamento
-========================================================= */
-
 .sd-grid {
     padding-left: 0;
     padding-right: 0;
