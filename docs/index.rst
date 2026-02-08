@@ -99,5 +99,5 @@
    :hidden:
    :maxdepth: 2
 
-   getting_started
+   installation/index
    api/index
