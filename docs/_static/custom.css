@@ -134,3 +134,10 @@
     height: 44px;
     width: auto;
 }
+
+.bd-article > h2 {
+    font-size: 1.55rem;
+    font-weight: 500;
+    margin-top: 2.5rem;
+    margin-bottom: 1.25rem;
+}
