@@ -18,27 +18,21 @@ def cum_returns(
     Parameters
     ----------
     returns : array-like
-        Input sequence of returns or PnL values.
-
-        - ``kind="simple"``: simple (decimal) returns
-        - ``kind="log"``: log-returns
-        - ``kind="pnl"``: additive PnL
+        Input sequence of returns or PnL values. Interpretation depends on
+        the ``kind`` parameter.
     kind : {"simple", "pnl", "log"}, optional
         Type of input values.
+
+        - ``"simple"``: simple (decimal) returns
+        - ``"log"``: log-returns
+        - ``"pnl"``: additive PnL
     starting_value : float, optional
         Initial cumulative level.
 
     Returns
     -------
     pandas.Series or numpy.ndarray
-        Cumulative performance series. The output type matches the
-        input type when possible.
-
-    Notes
-    -----
-    - Simple returns are compounded multiplicatively.
-    - Log-returns and PnL are aggregated additively.
-    - NaN values are treated as zero.
+        Cumulative performance series.
     """
     if kind not in {"simple", "pnl", "log"}:
         raise ValueError("`kind` must be one of {'simple', 'pnl', 'log'}.")
