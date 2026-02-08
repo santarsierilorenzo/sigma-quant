@@ -1,12 +1,12 @@
 dl.field-list {
-    border: none;
+    margin: 32px 0;
     padding: 0;
-    margin: 32px 0 24px 0;
-    background: none;
 }
 
 dl.field-list > dt {
-    display: inline-block;
+    display: block;
+    width: fit-content;
+
     padding: 6px 12px;
     margin-bottom: 12px;
 
@@ -23,4 +23,8 @@ dl.field-list > dt {
 dl.field-list > dd {
     margin-left: 0;
     padding-left: 0;
+}
+
+dl.field-list {
+    display: block;
 }
