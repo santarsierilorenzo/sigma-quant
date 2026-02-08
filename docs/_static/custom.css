@@ -134,9 +134,15 @@
     width: auto;
 }
 
-.bd-article > h2 {
-    font-size: 1.55rem;
-    font-weight: 500;
-    margin-top: 2.5rem;
-    margin-bottom: 1.25rem;
+/* =========================================================
+   REMOVE LEFT GUTTER (Breeze main content)
+========================================================= */
+
+.bd-main {
+    padding-left: 0 !important;
+}
+
+.bd-content {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
 }
