@@ -10,7 +10,7 @@ sys.path.insert(0, PROJECT_ROOT)
 
 project = "Quant-Kit"
 html_title = "Quant-Kit"
-html_logo = "_static/logo.png"
+html_logo = "_static/logo.svg"
 author: str = "Lorenzo Santarsieri"
 release: str = "0.1.0"
 
@@ -39,6 +39,7 @@ html_theme = "breeze"
 
 html_theme_options = {
     "sidebarwidth": 280,
+    "show_nav_title": True,
 }
 
 html_static_path = ["_static"]
