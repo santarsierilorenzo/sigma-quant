@@ -1,0 +1,23 @@
+/* Quant-Kit: Notes highlight */
+.qk-notes {
+    margin-top: 2em;
+    padding: 1.2em 1.2em 0.8em;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+/* Make the "Notes" title look like a header bar */
+.qk-notes > .section > h2,
+.qk-notes > .section > h3 {
+    margin-top: 0;
+    padding: 0.4em 0.7em;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.08);
+    font-size: 1.05em;
+}
+
+/* Slightly increase spacing for math inside notes */
+.qk-notes .math {
+    margin: 1em 0;
+}
