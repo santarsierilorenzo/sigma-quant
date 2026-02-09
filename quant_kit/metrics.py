@@ -27,10 +27,10 @@ def sharpe_ratio(
         Sequence of periodic returns.
     frequency
         Frequency of the returns:
-        - "D": daily
-        - "W": weekly
-        - "M": monthly
-        - "Y": yearly
+        - "D": `daily`
+        - "W": `weekly`
+        - "M": `monthly`
+        - "Y": `yearly`
     annualize
         If True, the Sharpe ratio is scaled to annual frequency.
     risk_free
