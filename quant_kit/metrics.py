@@ -17,43 +17,47 @@ def sharpe_ratio(
 ) -> float:
     """
     Compute the Sharpe ratio for a series of periodic returns.
-    If annualize is True, the Sharpe ratio is annualized by multiplying the
+
+    If ``annualize`` is True, the Sharpe ratio is annualized by multiplying the
     non-annualized estimate by the square root of the number of periods per
-    year implied by frequency.
+    year implied by ``frequency``.
 
     Parameters
     ----------
-    returns
-        Sequence of periodic returns.
+    returns : iterable of float
+        Sequence of periodic portfolio returns.
     frequency
         Frequency of the returns:
-        - "D": `daily`
-        - "W": `weekly`
-        - "M": `monthly`
-        - "Y": `yearly`
-    annualize
+        - ``"D"``: daily
+        - ``"W"``: weekly
+        - ``"M"``: monthly
+        - ``"Y"``: yearly
+    annualize : bool
         If True, the Sharpe ratio is scaled to annual frequency.
-    risk_free
-        Risk-free rate per period (same frequency as `returns`).
+    risk_free : float
+        Risk-free rate per period, expressed at the same frequency as
+        ``returns``.
 
     Returns
     -------
     float
-        Sharpe ratio.
+        Estimated Sharpe ratio.
 
     Notes
     -----
-    Notes
-    -----
-    - NaN values ignored.
+    - Missing values (NaN) are excluded from the computation.
 
-    - Formula:
+    - The Sharpe ratio is estimated as:
+
     .. math::
 
-        \text{Sharpe} =
+        \widehat{\mathrm{Sharpe}} =
         \frac{\overline{R_p - R_f}}{\operatorname{std}(R_p - R_f)}
 
-    """
+    where :math:`R_p` denotes portfolio returns and :math:`R_f` the risk-free
+    rate.
+"""
+
     arr = np.asarray(list(returns), dtype=float)
     arr = arr[~np.isnan(arr)]
     arr -= risk_free
