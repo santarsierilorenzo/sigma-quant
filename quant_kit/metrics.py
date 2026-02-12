@@ -51,32 +51,18 @@ def sharpe_ratio(
 
     .. math::
 
+
         \\text{Sharpe Ratio} =
         \\frac{
-            \\frac{1}{T}
-            \\sum_{t=1}^{T}
-            \\left( R_{p,t} - R_{f,t} \\right)
-        }
-        {
-            \\sqrt{
-                \\frac{1}{T}
-                \\sum_{t=1}^{T}
-                \\left(
-                    \\left( R_{p,t} - R_{f,t} \\right)
-                    -
-                    \\frac{1}{T}
-                    \\sum_{t=1}^{T}
-                    \\left( R_{p,t} - R_{f,t} \\right)
-                \\right)^2
-            }
+            \\overline{R_{p,t} - R_{f,t}}
+        }{
+            \\sigma(R_{p,t} - R_{f,t})
         }
 
         
     where :math:`R_p` denotes portfolio returns and :math:`R_f` the risk-free
     rate.    
     """
-
-
     arr = np.asarray(list(returns), dtype=float)
     arr = arr[~np.isnan(arr)]
     arr -= risk_free
@@ -137,14 +123,19 @@ def sortino_ratio(
 
     Notes
     -----
-    The Sortino ratio is defined as:
+    - Missing values (NaN) are excluded from the computation.
+
+    - The Sortino ratio is defined as:
 
     .. math::
 
-    \text{Sortino Ratio} = \frac{\overline{r_t - MAR}}{\sqrt{\frac{1}{T} \sum_{t=1}^{T}\min(r_t - MAR, 0)^2}}
-
-
-        \\text{Sortino Ratio} = \\frac{\\overline{r_t - MAR}}{\sqrt{\overline{min(r_t - MAR, 0)^2}}}
+    
+        \\text{Sortino Ratio} =
+        \\frac{
+            \\overline{R_p - MAR}
+        }{
+            \\sigma_D
+        }
 
     where r_t are the periodic returns.
 
