@@ -109,9 +109,7 @@ def sortino_ratio(
         - "Y": yearly
     annualize
         If True, the Sortino ratio is scaled to annual frequency.
-    risk_free
-        Risk-free rate per period. This parameter is ignored unless
-        explicitly used as MAR.
+
     mar
         Minimum acceptable return. This value is used consistently
         both in the numerator and in the downside risk computation.
@@ -125,6 +123,11 @@ def sortino_ratio(
     -----
     - Missing values (NaN) are excluded from the computation.
 
+    - The result is annualized using the
+    square-root-of-time rule when `annualize=True`.
+
+    - Risk-free rate is ignored unless explicitly used as MAR.
+
     - The Sortino ratio is defined as:
 
     .. math::
@@ -137,12 +140,7 @@ def sortino_ratio(
             \\operatorname{std}(
                 \\min(R_{p,t} - MAR, 0)
             )
-        }
-  
-    where r_t are the periodic returns.
-
-    NaN values are ignored. The result is annualized using the
-    square-root-of-time rule when `annualize=True`.
+        }    
     """
     arr = np.asarray(list(returns), dtype=float)
     arr = arr[~np.isnan(arr)]
