@@ -51,11 +51,31 @@ def sharpe_ratio(
 
     .. math::
 
-        \\text{Sharpe Ratio} = \\frac{\\overline{R_p - R_f}}{\\operatorname{std}(R_p - R_f)}
+        \\text{Sharpe Ratio} =
+        \\frac{
+            \\frac{1}{T}
+            \\sum_{t=1}^{T}
+            \\left( R_{p,t} - R_{f,t} \\right)
+        }
+        {
+            \\sqrt{
+                \\frac{1}{T}
+                \\sum_{t=1}^{T}
+                \\left(
+                    \\left( R_{p,t} - R_{f,t} \\right)
+                    -
+                    \\frac{1}{T}
+                    \\sum_{t=1}^{T}
+                    \\left( R_{p,t} - R_{f,t} \\right)
+                \\right)^2
+            }
+        }
 
+        
     where :math:`R_p` denotes portfolio returns and :math:`R_f` the risk-free
-    rate.
+    rate.    
     """
+
 
     arr = np.asarray(list(returns), dtype=float)
     arr = arr[~np.isnan(arr)]
@@ -119,7 +139,12 @@ def sortino_ratio(
     -----
     The Sortino ratio is defined as:
 
-        Sortino = E[r_t - MAR] / sqrt( E[min(r_t - MAR, 0)^2] )
+    .. math::
+
+    \text{Sortino Ratio} = \frac{\overline{r_t - MAR}}{\sqrt{\frac{1}{T} \sum_{t=1}^{T}\min(r_t - MAR, 0)^2}}
+
+
+        \\text{Sortino Ratio} = \\frac{\\overline{r_t - MAR}}{\sqrt{\overline{min(r_t - MAR, 0)^2}}}
 
     where r_t are the periodic returns.
 

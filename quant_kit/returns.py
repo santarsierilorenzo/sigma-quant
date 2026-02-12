@@ -186,7 +186,7 @@ def aggregate_returns(
         - "Y": yearly
     kind
         Type of input values:
-        - "simple": compound simple returns
+        - "simple": simple returns
         - "log": additive log-returns
         - "pnl": additive monetary PnL
 
