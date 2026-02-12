@@ -1,7 +1,7 @@
 from __future__ import annotations
 
+from .custom_typing import ArrayLike, Frequency
 from .risk import downside_risk, drawdown
-from .typing import ArrayLike, Frequency
 from .utils import periods_per_year
 from .returns import _active_return
 from typing import Iterable

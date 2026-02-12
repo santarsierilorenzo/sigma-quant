@@ -1,8 +1,8 @@
 from __future__ import annotations
 
 from .utils import periods_per_year, _PANDAS_RULE
-from typing import Iterable, Literal, Union
-from .typing import ArrayLike, Frequency
+from .custom_typing import ArrayLike, Frequency
+from typing import Iterable, Literal
 import pandas as pd
 import numpy as np
 

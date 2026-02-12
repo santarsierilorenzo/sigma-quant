@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from .typing import Frequency
+from .custom_typing import Frequency
 
 
 _PERIODS_PER_YEAR: dict[Frequency, int] = {

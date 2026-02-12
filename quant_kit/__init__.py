@@ -1,4 +1,4 @@
-from .typing import Frequency
+from .custom_typing import Frequency
 
 from .returns import (
     cum_returns,
