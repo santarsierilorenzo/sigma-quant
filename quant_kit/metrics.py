@@ -51,15 +51,15 @@ def sharpe_ratio(
 
     .. math::
 
-
-        \\text{Sharpe Ratio} =
-        \\frac{
-            \\overline{R_{p,t} - R_{f,t}}
+    
+        \text{Sharpe Ratio} =
+        \sqrt{N}
+        \frac{
+            \operatorname{mean}(R_{p,t} - R_f)
         }{
-            \\sigma(R_{p,t} - R_{f,t})
+            \operatorname{std}(R_{p,t} - R_f)
         }
 
-        
     where :math:`R_p` denotes portfolio returns and :math:`R_f` the risk-free
     rate.    
     """
@@ -129,17 +129,15 @@ def sortino_ratio(
 
     .. math::
 
-    
-      \\text{Sortino Ratio} =
-      \\frac{
-          \\overline{R_{p,t} - MAR}
-      }{
-          \\sqrt{
-              \\overline{
-                  \\min(R_{p,t} - MAR, 0)^2
-              }
-          }
-      }
+        \text{Sortino Ratio} =
+        \sqrt{N}
+        \frac{
+            \operatorname{mean}(R_{p,t} - MAR)
+        }{
+            \operatorname{std}(
+                \min(R_{p,t} - MAR, 0)
+            )
+        }
 
     where r_t are the periodic returns.
 
