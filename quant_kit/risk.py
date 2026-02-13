@@ -426,9 +426,9 @@ def tail_ratio(
 
 
     Interpretation:
-    - TailRatio > 1 indicates fatter right tails (more extreme gains).
-    - TailRatio < 1 indicates fatter left tails (more extreme losses).
-    - TailRatio ≈ 1 indicates symmetric tails.
+        - TailRatio > 1 indicates fatter right tails (more extreme gains).
+        - TailRatio < 1 indicates fatter left tails (more extreme losses).
+        - TailRatio ≈ 1 indicates symmetric tails.
     """
     arr = np.asarray(list(returns), dtype=float)
     arr = arr[~np.isnan(arr)]
