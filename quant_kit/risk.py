@@ -40,13 +40,31 @@ def drawdown(
         - relative drawdown for pnl if starting_value > 0
         - absolute drawdown for pnl if starting_value == 0
 
+
     Notes
     -----
-    Relative drawdown is defined as:
+    Let :math:`W_t` denote the equity curve implied by the input series.
 
-        DD_t = W_t / max_{s <= t} W_s - 1
+    The relative drawdown is defined as:
 
-    where W_t is the equity curve.
+    .. math::
+
+        \\mathrm{DD}_t =
+        \\frac{W_t}
+        {\\max_{s \\le t} W_s}
+        - 1
+
+    For ``kind="simple"`` and ``kind="log"``, :math:`W_t` is the cumulative
+    equity obtained from returns.
+
+    For ``kind="pnl"``:
+    - if ``starting_value > 0``, the relative drawdown is computed;
+    - if ``starting_value = 0``, the absolute drawdown is returned:
+
+    .. math::
+
+        \\mathrm{DD}_t^{abs} =
+        W_t - \\max_{s \\le t} W_s
     """
     cumulative = cum_returns(
         returns,
@@ -94,6 +112,15 @@ def max_drawdown(
     -------
     float
         Maximum drawdown (non-positive).
+
+    Notes
+    -----
+    The maximum drawdown is defined as:
+
+    .. math::
+
+        \\mathrm{MaxDD} =
+        \\min_t \\mathrm{DD}_t
     """
     dd = drawdown(
         returns,
@@ -128,8 +155,31 @@ def annual_vola(
 
     Notes
     -----
-    NaN values are ignored. If fewer than two valid observations
-    are available, NaN is returned.
+    - NaN values are ignored. If fewer than two valid observations are
+      available, NaN is returned.
+
+    Let :math:`r_t` denote the periodic returns.
+
+    Define the sample standard deviation as:
+
+    .. math::
+
+        s =
+        \\sqrt{
+            \\frac{1}{T - 1}
+            \\sum_{t=1}^{T}
+            (r_t - \\bar{r})^2
+        }
+
+    The annualized volatility estimator is:
+
+    .. math::
+
+        \\widehat{\\sigma}_{ann} =
+        s \\sqrt{N}
+
+    where :math:`N` is the number of periods per year implied by
+    ``frequency``.
     """
     arr = np.asarray(list(returns), dtype=float)
     arr = arr[~np.isnan(arr)]
@@ -168,11 +218,21 @@ def downside_risk(
 
     Notes
     -----
-    Downside risk is computed as:
+    - NaN values are ignored.
 
-        sqrt( mean( min(r_t - m, 0)^2 ) )
+    Let :math:`r_t` denote the periodic returns and :math:`m` a threshold
+    level.
 
-    NaN values are ignored.
+    The downside risk (semi-deviation) is defined as:
+
+    .. math::
+
+        s_d =
+        \\sqrt{
+            \\frac{1}{T}
+            \\sum_{t=1}^{T}
+            \\min(r_t - m, 0)^2
+        }
     """
     arr = np.asarray(list(returns), dtype=float)
     arr = arr[~np.isnan(arr)]
@@ -207,13 +267,25 @@ def upside_risk(
     float
         Upside risk (upside semi-deviation).
 
+
     Notes
     -----
-    Upside risk is computed as:
 
-        sqrt( mean( max(r_t - m, 0)^2 ) )
+    - NaN values are ignored.
 
-    NaN values are ignored.
+    Let :math:`r_t` denote the periodic returns and :math:`m` a threshold
+    level.
+
+    The upside risk (upside semi-deviation) is defined as:
+
+    .. math::
+
+        s_u =
+        \\sqrt{
+            \\frac{1}{T}
+            \\sum_{t=1}^{T}
+            \\max(r_t - m, 0)^2
+        }
     """
     arr = np.asarray(list(returns), dtype=float)
     arr = arr[~np.isnan(arr)]
@@ -335,20 +407,28 @@ def tail_ratio(
 
     Notes
     -----
+    - NaN values are ignored. If :math:`Q_{0.05} = 0`, the tail ratio is
+      undefined.
+
     The tail ratio is defined as:
 
-        TailRatio = |Q_{0.95}| / |Q_{0.05}|
+    .. math::
 
-    where Q_p denotes the p-th empirical quantile of the return
+        \\text{TailRatio} =
+        \\frac{
+            |Q_{0.95}|
+        }{
+            |Q_{0.05}|
+        }
+
+    where :math:`Q_p` denotes the empirical p-th quantile of the return
     distribution.
+
 
     Interpretation:
     - TailRatio > 1 indicates fatter right tails (more extreme gains).
     - TailRatio < 1 indicates fatter left tails (more extreme losses).
     - TailRatio ≈ 1 indicates symmetric tails.
-
-    NaN values are ignored. If the lower tail quantile is zero,
-    the tail ratio is undefined and NaN is returned.
     """
     arr = np.asarray(list(returns), dtype=float)
     arr = arr[~np.isnan(arr)]
