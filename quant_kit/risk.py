@@ -23,9 +23,9 @@ def drawdown(
     ----------
     returns
         Input time series:
-        - kind="simple": simple returns
-        - kind="log": log-returns
-        - kind="pnl": additive PnL
+            - kind="simple": simple returns
+            - kind="log": log-returns
+            - kind="pnl": additive PnL
     kind
         Type of input values.
     starting_value
@@ -36,9 +36,9 @@ def drawdown(
     -------
     pandas.Series or numpy.ndarray
         Drawdown series:
-        - relative drawdown for simple and log returns
-        - relative drawdown for pnl if starting_value > 0
-        - absolute drawdown for pnl if starting_value == 0
+            - relative drawdown for simple and log returns
+            - relative drawdown for pnl if starting_value > 0
+            - absolute drawdown for pnl if starting_value == 0
 
 
     Notes
@@ -58,8 +58,8 @@ def drawdown(
     equity obtained from returns.
 
     For ``kind="pnl"``:
-    - if ``starting_value > 0``, the relative drawdown is computed;
-    - if ``starting_value = 0``, the absolute drawdown is returned:
+        - if ``starting_value > 0``, the relative drawdown is computed;
+        - if ``starting_value = 0``, the absolute drawdown is returned:
 
     .. math::
 
