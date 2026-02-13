@@ -47,21 +47,48 @@ def sharpe_ratio(
     -----
     - Missing values (NaN) are excluded from the computation.
 
-    - The Sharpe ratio is estimated as:
+    Let :math:`r_t` denote the periodic portfolio returns and
+    :math:`r_f` the per-period risk-free rate.
+
+    Define the sample mean excess return as:
 
     .. math::
 
-        \\text{Sharpe Ratio} =
-        \\sqrt{N}
-        \\frac{
-            \\operatorname{mean}(R_{p,t} - R_f)
-        }{
-            \\operatorname{std}(R_{p,t} - R_f)
+        \\bar{r}_e =
+        \\frac{1}{T}
+        \\sum_{t=1}^{T}
+        (r_t - r_f)
+
+    and the sample standard deviation of excess returns as:
+
+    .. math::
+
+        s_e =
+        \\sqrt{
+            \\frac{1}{T - 1}
+            \\sum_{t=1}^{T}
+            \\left(
+                (r_t - r_f) - \\bar{r}_e
+            \\right)^2
         }
 
-        
-    where :math:`R_p` denotes portfolio returns and :math:`R_f` the risk-free
-    rate.    
+    The (non-annualized) Sharpe ratio estimator is:
+
+    .. math::
+
+        \\widehat{\\text{Sharpe}} =
+        \\frac{\\bar{r}_e}{s_e}
+
+    If ``annualize=True``, the estimator is scaled as:
+
+    .. math::
+
+        \\widehat{\\text{Sharpe}}_{ann} =
+        \\sqrt{N}
+        \\frac{\\bar{r}_e}{s_e}
+
+    where :math:`N` is the number of periods per year implied by
+    ``frequency``. 
     """
     arr = np.asarray(list(returns), dtype=float)
     arr = arr[~np.isnan(arr)]
@@ -128,19 +155,45 @@ def sortino_ratio(
 
     - Risk-free rate is ignored unless explicitly used as MAR.
 
-    - The Sortino ratio is defined as:
+    Let :math:`r_t` denote the periodic returns and :math:`MAR`
+    the minimum acceptable return.
+
+    Define the sample mean excess return as:
 
     .. math::
 
-        \\text{Sortino Ratio} =
+        \\bar{r}_{MAR} =
+        \\frac{1}{T}
+        \\sum_{t=1}^{T}
+        (r_t - MAR)
+
+    Define the downside deviation as:
+
+    .. math::
+
+        s_d =
+        \\sqrt{
+            \\frac{1}{T - 1}
+            \\sum_{t=1}^{T}
+            \\min(r_t - MAR, 0)^2
+        }
+
+    The Sortino ratio estimator is:
+
+    .. math::
+
+        \\widehat{\\text{Sortino}} =
+        \\frac{\\bar{r}_{MAR}}{s_d}
+
+    If ``annualize=True``:
+
+    .. math::
+
+        \\widehat{\\text{Sortino}}_{ann} =
         \\sqrt{N}
-        \\frac{
-            \\operatorname{mean}(R_{p,t} - MAR)
-        }{
-            \\operatorname{std}(
-                \\min(R_{p,t} - MAR, 0)
-            )
-        }    
+        \\frac{\\bar{r}_{MAR}}{s_d}
+
+    where :math:`N` is the number of periods per year.  
     """
     arr = np.asarray(list(returns), dtype=float)
     arr = arr[~np.isnan(arr)]
