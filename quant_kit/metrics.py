@@ -90,7 +90,7 @@ def sharpe_ratio(
     where :math:`N` is the number of periods per year implied by
     ``frequency``. 
     """
-    arr = np.asarray(list(returns), dtype=float)
+    arr = np.asarray(returns, dtype=float)
     arr = arr[~np.isnan(arr)]
     arr -= risk_free
 
@@ -150,8 +150,8 @@ def sortino_ratio(
     -----
     - Missing values (NaN) are excluded from the computation.
 
-    - The result is annualized using the
-    square-root-of-time rule when `annualize=True`.
+    - The result is annualized using the square-root-of-time rule when
+      `annualize=True`.
 
     - Risk-free rate is ignored unless explicitly used as MAR.
 
@@ -195,7 +195,7 @@ def sortino_ratio(
 
     where :math:`N` is the number of periods per year.  
     """
-    arr = np.asarray(list(returns), dtype=float)
+    arr = np.asarray(returns, dtype=float)
     arr = arr[~np.isnan(arr)]
 
     if arr.size < 2:
@@ -260,7 +260,7 @@ def calmar_ratio(
     where:
 
     - :math:`\\mathrm{CAGR}` is the compound annual growth rate.
-    - :math:`\\mathrm{MaxDrawdown}` is the maximum peak-to-trough drawdown
+    - :math:`\\mathrm{Max Drawdown}` is the maximum peak-to-trough drawdown
       over the sample period.
 
     If ``kind="pnl"``, a Calmar-like metric is computed:
@@ -351,7 +351,7 @@ def omega_ratio(
     NaN values are ignored. If the denominator is zero (no downside
     deviations), the Omega ratio is undefined.
     """
-    arr = np.asarray(list(returns), dtype=float)
+    arr = np.asarray(returns, dtype=float)
     arr = arr[~np.isnan(arr)]
 
     if arr.size < 2:
@@ -416,7 +416,7 @@ def hit_rate(
 
     NaN values are ignored.
     """
-    arr = np.asarray(list(returns), dtype=float)
+    arr = np.asarray(returns, dtype=float)
     arr = arr[~np.isnan(arr)]
 
     if arr.size == 0:
@@ -487,24 +487,23 @@ def skew(
 
     Notes
     -----
-    Skewness is defined as:
+    - NaN values are ignored. No finite-sample bias correction is applied.
+
+    Let :math:`\\bar{r}` be the sample mean and :math:`s` the
+    sample standard deviation.
+
+    The skewness estimator is:
 
     .. math::
 
-        \\text{Skew} =
-        \\mathbb{E}
-        \\left[
-            \\left(
-                \\frac{X - \\mu}{\\sigma}
-            \\right)^3
-        \\right]
-
-    where :math:`\\mu` is the sample mean and :math:`\\sigma` is the
-    sample standard deviation computed with ``ddof=1``.
-
-    NaN values are ignored. No finite-sample bias correction is applied.
+        \\widehat{\\text{Skew}} =
+        \\frac{1}{T}
+        \\sum_{t=1}^{T}
+        \\left(
+            \\frac{r_t - \\bar{r}}{s}
+        \\right)^3
     """
-    arr = np.asarray(list(returns), dtype=float)
+    arr = np.asarray(returns, dtype=float)
     arr = arr[~np.isnan(arr)]
 
     mu = arr.mean()
@@ -535,27 +534,23 @@ def excess_kurtosis(
 
     Notes
     -----
-    Excess kurtosis is defined as:
+    - A normal distribution has zero excess kurtosis.
+
+    - NaN values are ignored. No finite-sample bias correction is applied.
+
+    The excess kurtosis estimator is:
 
     .. math::
 
-        \\text{Excess Kurtosis} =
-        \\mathbb{E}
-        \\left[
-            \\left(
-                \\frac{X - \\mu}{\\sigma}
-            \\right)^4
-        \\right]
+        \\widehat{\\kappa} =
+        \\frac{1}{T}
+        \\sum_{t=1}^{T}
+        \\left(
+            \\frac{r_t - \\bar{r}}{s}
+        \\right)^4
         - 3
-
-    where :math:`\\mu` is the sample mean and :math:`\\sigma` is the
-    sample standard deviation computed with ``ddof=1``.
-
-    A normal distribution has zero excess kurtosis.
-
-    NaN values are ignored. No finite-sample bias correction is applied.
     """
-    arr = np.asarray(list(returns), dtype=float)
+    arr = np.asarray(returns, dtype=float)
     arr = arr[~np.isnan(arr)]
 
     mu = arr.mean()
@@ -587,25 +582,22 @@ def tracking_error(
 
     Notes
     -----
-    Tracking error is defined as the sample standard deviation of
+    - NaN values are ignored.
+    - Tracking error is defined as the sample standard deviation of
     active returns:
+
+    Let :math:`a_t = r_t - b_t` denote the active returns.
+
+    The tracking error estimator is:
 
     .. math::
 
-        \\text{TE} =
+        \\widehat{\\text{TE}} =
         \\sqrt{
             \\frac{1}{T - 1}
-            \\sum_{t=1}^T
-            \\left(
-                (r_t - b_t) - \\overline{r - b}
-            \\right)^2
+            \\sum_{t=1}^{T}
+            (a_t - \\bar{a})^2
         }
-
-    where :math:`r_t` are the portfolio returns,
-    :math:`b_t` are the benchmark or factor returns, and
-    :math:`\\overline{r - b}` is the mean active return.
-
-    NaN values are ignored.
     """
     ar = _active_return(returns, factor_returns)
     return float(np.nanstd(ar, ddof=1))
@@ -637,26 +629,25 @@ def information_ratio(
 
     Notes
     -----
-    The Information Ratio is defined as:
+    -  If the tracking error is zero or undefined, the Information Ratio
+    is undefined.
+
+    The Information Ratio estimator is:
 
     .. math::
 
-        \\text{IR} =
+        \\widehat{\\text{IR}} =
         \\frac{
-            \\mathbb{E}[r_t - b_t]
+            \\bar{a}
         }{
-            \\text{TE}
+            \\widehat{\\text{TE}}
         }
 
-    where :math:`r_t` are the strategy returns, :math:`b_t` are the
-    benchmark or factor returns, and :math:`\\text{TE}` is the tracking
-    error, defined as the sample standard deviation of active returns.
-
-    If the tracking error is zero or undefined, the Information Ratio
-    is undefined.
+    where :math:`\\bar{a}` is the sample mean active return and
+    :math:`\\widehat{\\text{TE}}` is the tracking error.
     """
-    returns_arr = np.asarray(list(returns), dtype=float)
-    factor_arr = np.asarray(list(factor_returns), dtype=float)
+    returns_arr = np.asarray(returns, dtype=float)
+    factor_arr = np.asarray(factor_returns, dtype=float)
 
     mask = ~np.isnan(returns_arr) & ~np.isnan(factor_arr)
     returns_arr = returns_arr[mask]
