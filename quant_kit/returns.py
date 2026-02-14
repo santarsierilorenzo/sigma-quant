@@ -180,11 +180,10 @@ def aggregate_returns(
         - "W": weekly
         - "M": monthly
         - "Y": yearly
-    kind
-        Type of input values:
-        - "simple": simple returns
-        - "log": additive log-returns
-        - "pnl": additive monetary PnL
+    kind : {"simple", "log", "pnl"}, optional
+        - ``"simple"``: simple (decimal) returns, compounded
+        - ``"log"``: log-returns, aggregated additively
+        - ``"pnl"``: additive profit-and-loss values
 
     Returns
     -------
