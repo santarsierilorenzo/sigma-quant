@@ -109,10 +109,7 @@ def annual_return(
         as ``n_obs / 52``.
 
     kind : {"simple", "log", "pnl"}, optional
-        Type of input values.
-
         - ``"simple"``: simple (decimal) returns, compounded
-        multiplicatively
         - ``"log"``: log-returns, aggregated additively
         - ``"pnl"``: additive profit-and-loss values
 
@@ -137,7 +134,6 @@ def annual_return(
     .. math::
 
         \\frac{1}{\\text{years}} \sum_{k=1}^{N} \\text{PnL}_k
-
     """
 
     if kind not in {"simple", "log", "pnl"}:
