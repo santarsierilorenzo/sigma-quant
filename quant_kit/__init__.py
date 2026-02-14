@@ -14,6 +14,7 @@ from .risk import (
     upside_risk,
     time_underwater,
     drawdown_stats,
+    tail_ratio,
 )
 
 from .metrics import (
