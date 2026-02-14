@@ -176,10 +176,10 @@ def aggregate_returns(
         Time series indexed by datetime.
     frequency
         Target aggregation frequency:
-        - "D": daily
-        - "W": weekly
-        - "M": monthly
-        - "Y": yearly
+            - "D": daily
+            - "W": weekly
+            - "M": monthly
+            - "Y": yearly
     kind : {"simple", "log", "pnl"}, optional
         - ``"simple"``: simple (decimal) returns, compounded
         - ``"log"``: log-returns, aggregated additively

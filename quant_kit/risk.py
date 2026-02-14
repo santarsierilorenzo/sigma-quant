@@ -23,11 +23,13 @@ def drawdown(
     ----------
     returns
         Input time series:
-            - kind="simple": simple returns
-            - kind="log": log-returns
-            - kind="pnl": additive PnL
-    kind
+    kind : {"simple", "pnl", "log"}, optional
         Type of input values.
+
+        - ``"simple"``: simple (decimal) returns, compounded multiplicatively
+        - ``"log"``: log-returns, aggregated additively
+        - ``"pnl"``: additive profit-and-loss values
+
     starting_value
         Initial cumulative level. For PnL inputs, this represents
         the initial capital.
@@ -338,10 +340,19 @@ def drawdown_stats(
 
     Parameters
     ----------
-    returns
-        Input time series.
-    kind
+    returns : array-like
+        Input sequence of returns or PnL values. The interpretation of the
+        input depends on the ``kind`` parameter.
+
+        This is typically a one-dimensional array-like object such as a
+        ``numpy.ndarray`` or ``pandas.Series``.
+    kind : {"simple", "pnl", "log"}, optional
         Type of input values.
+
+        - ``"simple"``: simple (decimal) returns, compounded multiplicatively
+        - ``"log"``: log-returns, aggregated additively
+        - ``"pnl"``: additive profit-and-loss values
+
     starting_value
         Initial cumulative level.
 
@@ -397,8 +408,12 @@ def tail_ratio(
 
     Parameters
     ----------
-    returns
-        Sequence of periodic returns or PnL values.
+    returns : array-like
+        Input sequence of returns or PnL values. The interpretation of the
+        input depends on the ``kind`` parameter.
+
+        This is typically a one-dimensional array-like object such as a
+        ``numpy.ndarray`` or ``pandas.Series``.
 
     Returns
     -------

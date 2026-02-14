@@ -28,10 +28,10 @@ def sharpe_ratio(
         Sequence of periodic portfolio returns.
     frequency
         Frequency of the returns:
-        - ``"D"``: daily
-        - ``"W"``: weekly
-        - ``"M"``: monthly
-        - ``"Y"``: yearly
+            - ``"D"``: daily
+            - ``"W"``: weekly
+            - ``"M"``: monthly
+            - ``"Y"``: yearly
     annualize : bool
         If True, the Sharpe ratio is scaled to annual frequency.
     risk_free : float
@@ -130,10 +130,10 @@ def sortino_ratio(
         Sequence of periodic returns.
     frequency
         Frequency of the returns:
-        - "D": daily
-        - "W": weekly
-        - "M": monthly
-        - "Y": yearly
+            - "D": daily
+            - "W": weekly
+            - "M": monthly
+            - "Y": yearly
     annualize
         If True, the Sortino ratio is scaled to annual frequency.
 
@@ -308,10 +308,10 @@ def omega_ratio(
         Annual required (minimum acceptable) return.
     frequency
         Frequency of the input returns:
-        - "D": daily
-        - "W": weekly
-        - "M": monthly
-        - "Y": yearly
+            - "D": daily
+            - "W": weekly
+            - "M": monthly
+            - "Y": yearly
 
     Returns
     -------
@@ -442,10 +442,10 @@ def period_hit_rate(
         Time series of periodic returns indexed by datetime.
     frequency
         Aggregation frequency:
-        - "D": daily
-        - "W": weekly
-        - "M": monthly
-        - "Y": yearly
+            - "D": daily
+            - "W": weekly
+            - "M": monthly
+            - "Y": yearly
 
     Returns
     -------
