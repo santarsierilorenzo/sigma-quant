@@ -33,10 +33,6 @@ class AutocorrelationTest:
     info: Dict[str, Any] = field(default_factory=dict)
 
 
-import numpy as np
-from numpy.typing import ArrayLike
-
-
 def acf(
     values: ArrayLike,
     lags: int | None = None
