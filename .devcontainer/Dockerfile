@@ -1,4 +1,4 @@
-FROM python:3.10
+FROM python:3.11
 
 # Create non-root user with bash
 RUN useradd -ms /bin/bash myuser
