@@ -1,6 +1,6 @@
 [project]
 name = "sigmaquant"
-version = "0.1.3"
+version = "0.1.4"
 description = "Python library providing performance, risk, and distribution metrics for quantitative finance workflows"
 readme = "README.md"
 license = "MIT"
