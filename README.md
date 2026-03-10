@@ -13,7 +13,7 @@
 </p>
 
 
-quant-kit is a lightweight Python library providing performance,
+sigma-quant is a lightweight Python library providing performance,
 risk, and distribution metrics for quantitative finance workflows.
 
 
@@ -22,7 +22,7 @@ risk, and distribution metrics for quantitative finance workflows.
 Install the package from **PyPI**:
 
 ```bash
-pip install quant-kit
+pip install sigma-quant
 ```
 
 ### 📘Documentation
@@ -33,7 +33,7 @@ For the complete API reference, mathematical definitions, statistical
 conventions, and usage examples, please refer to the official
 documentation:
 
-https://quant-kit.readthedocs.io/en/latest/index.html
+https://sigma-quant.readthedocs.io/en/latest/index.html
 
 
 ### ASCII Report
