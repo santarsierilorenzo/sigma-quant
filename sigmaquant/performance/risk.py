@@ -274,7 +274,7 @@ def upside_risk(
     returns: ArrayLike,
     frequency: Frequency,
     m: float = 0.0,
-    annualize: bool = True
+    annualize: bool = True,
 ) -> float:
     """
     Compute upside risk (upside semi-deviation).
