@@ -31,3 +31,4 @@ from .performance.metrics import (
 )
 
 from .performance.rolling import rolling_metric
+from .performance.report import ascii_report

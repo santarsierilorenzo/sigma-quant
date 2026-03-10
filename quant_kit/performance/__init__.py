@@ -29,4 +29,4 @@ from .metrics import (
 )
 
 from .rolling import rolling_metric
-
+from .report import ascii_report

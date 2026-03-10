@@ -10,3 +10,4 @@ Performance Subpackage
    metrics
    risk
    rolling
+   report

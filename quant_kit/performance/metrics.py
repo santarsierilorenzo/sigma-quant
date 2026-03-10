@@ -662,4 +662,4 @@ def information_ratio(
     if te == 0.0 or np.isnan(te):
         return np.nan
 
-    return ar / te
+    return float(np.mean(ar) / te)
