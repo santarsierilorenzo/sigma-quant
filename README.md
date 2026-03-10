@@ -62,8 +62,6 @@ df = report.to_dataframe()
 data = report.to_dict()
 ```
 
-
-
 ### 🪪 License
 ------------
 MIT © 2025 — Developed with ❤️ by Lorenzo Santarsieri & Tommaso Grandi
