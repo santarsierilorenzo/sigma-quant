@@ -13,7 +13,7 @@
 </p>
 
 
-sigma-quant is a lightweight Python library providing performance,
+sigmaquant is a lightweight Python library providing performance,
 risk, and distribution metrics for quantitative finance workflows.
 
 
