@@ -48,13 +48,13 @@
    :gutter: 2
 
    .. grid-item-card:: 📊 Performance Metrics
-      :link: api/returns.html
+      :link: api/performance.html
 
       Portfolio and strategy performance metrics such as cumulative returns,
       Sharpe ratio, drawdowns, volatility, and related statistics.
 
    .. grid-item-card:: ⚠️ Risk Analysis
-      :link: api/risk.html
+      :link: api/performance.html
 
       Downside and tail-risk measures, including value-at-risk,
       expected shortfall, and stress-oriented indicators.

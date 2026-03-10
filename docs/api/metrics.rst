@@ -7,13 +7,13 @@ Functions for computing metrics.
    :toctree: generated/
    :nosignatures:
 
-   quant_kit.metrics.sharpe_ratio
-   quant_kit.metrics.sortino_ratio
-   quant_kit.metrics.calmar_ratio
-   quant_kit.metrics.omega_ratio
-   quant_kit.metrics.hit_rate
-   quant_kit.metrics.period_hit_rate
-   quant_kit.metrics.skew
-   quant_kit.metrics.excess_kurtosis
-   quant_kit.metrics.tracking_error
-   quant_kit.metrics.information_ratio
+   quant_kit.performance.metrics.sharpe_ratio
+   quant_kit.performance.metrics.sortino_ratio
+   quant_kit.performance.metrics.calmar_ratio
+   quant_kit.performance.metrics.omega_ratio
+   quant_kit.performance.metrics.hit_rate
+   quant_kit.performance.metrics.period_hit_rate
+   quant_kit.performance.metrics.skew
+   quant_kit.performance.metrics.excess_kurtosis
+   quant_kit.performance.metrics.tracking_error
+   quant_kit.performance.metrics.information_ratio

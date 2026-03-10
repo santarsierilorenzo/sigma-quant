@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import Optional, Dict, Any, List
 from dataclasses import dataclass, field
 from statsmodels.stats import diagnostic
-from .custom_typing import ArrayLike
+from ..custom_typing import ArrayLike
 from scipy.stats import norm
 import numpy as np
 

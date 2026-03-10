@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from .utils import periods_per_year, _PANDAS_RULE
-from .custom_typing import ArrayLike, Frequency
+from ..utils import periods_per_year, _PANDAS_RULE
+from ..custom_typing import ArrayLike, Frequency
 from .returns import _active_return, annual_return
 from .risk import downside_risk, max_drawdown
 from typing import Iterable

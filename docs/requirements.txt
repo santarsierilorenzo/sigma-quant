@@ -3,3 +3,5 @@ sphinx-design>=0.5
 sphinx-breeze-theme
 pandas
 numpy
+scipy
+statsmodels

@@ -1,12 +1,10 @@
-from .custom_typing import Frequency
-
-from .performance.returns import (
+from .returns import (
     cum_returns,
     annual_return,
     aggregate_returns,
 )
 
-from .performance.risk import (
+from .risk import (
     drawdown,
     max_drawdown,
     annual_vola,
@@ -17,7 +15,7 @@ from .performance.risk import (
     tail_ratio,
 )
 
-from .performance.metrics import (
+from .metrics import (
     sharpe_ratio,
     sortino_ratio,
     calmar_ratio,
@@ -30,4 +28,5 @@ from .performance.metrics import (
     information_ratio,
 )
 
-from .performance.rolling import rolling_metric
+from .rolling import rolling_metric
+

@@ -7,4 +7,4 @@ Functions for rolling metrics.
    :toctree: generated/
    :nosignatures:
 
-   quant_kit.rolling.rolling_metric
+   quant_kit.performance.rolling.rolling_metric

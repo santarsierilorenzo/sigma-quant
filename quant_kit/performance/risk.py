@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from .custom_typing import ArrayLike, Frequency
-from .utils import periods_per_year
+from ..custom_typing import ArrayLike, Frequency
+from ..utils import periods_per_year
 from .returns import cum_returns
 from typing import Literal
 import pandas as pd

@@ -14,6 +14,13 @@ The recommended import pattern is the following:
 
    import quant_kit as qt
 
+For subpackage-oriented imports:
+
+.. code-block:: python
+
+   from quant_kit.performance import sharpe_ratio, drawdown
+   from quant_kit.research.autocorr import ljung_box
+
 Example
 ~~~~~~~~~~~~~~~~~~~~
 
