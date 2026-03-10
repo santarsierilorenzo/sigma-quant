@@ -1,0 +1,18 @@
+[project]
+name = "quant_kit"
+version = "0.1.0"
+description = "Python library providing performance, risk, and distribution metrics for quantitative finance workflows"
+readme = "README.md"
+license = "MIT"
+authors = [{ name = "Lorenzo Santarsieri" }]
+requires-python = ">=3.11"
+dependencies = [
+    "numpy>=2.2,<3",
+    "scipy>=1.15,<2",
+    "pandas>=2.2,<3",
+    "statsmodels>=0.14,<1"
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
